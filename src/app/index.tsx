@@ -1,98 +1,70 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { Link } from 'expo-router';
+import { View, Text, FlatList, ScrollView, StyleSheet, TouchableOpacity,Image} from 'react-native';
 
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
+
+export default function Index() {
   return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+    <View>
 
-export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+      <Image style={style.Imagem}source={{uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo60Kxr53bTi8g3Y5MOqD8SgR82tyJVpCi5iXj_C6Ih9P7p8Lg-u5MT7w&s=10"}}/>
+      
+      <View style={style.conteudo}>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
+      <Text style={style.Titulo}>
+        SenaiFlix
+      </Text>
+      <Text>
+        Filmes e series ilimitados. Assista onde quiser.
+      </Text>
+      </View>
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
+ <Link href={'/filmes'} asChild>
+      <TouchableOpacity>
+        <View style={style.btn}>
+          <Text style={style.btnEntrar}>Entrar</Text>
+        </View>
+      </TouchableOpacity>
+ </Link>
+    </View>
+  )};
 
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
-  );
-}
+  const style = StyleSheet.create({
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
-  title: {
-    textAlign: 'center',
-  },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
-  },
-});
+
+
+
+    conteudo:{
+      marginLeft: 20
+    },
+
+    Imagem: {
+      height: 700
+    },
+
+    Titulo:{
+      fontSize: 40,
+      fontWeight: "900",
+      color: "#FF0514",
+      marginTop:20,
+      marginBottom: 10
+    },
+
+    btnEntrar:{
+        color:"#FFFF",
+        padding: 10,
+        width:200,
+        alignContent:"center",
+        backgroundColor:"#FF0514",
+        textAlign:"center",
+        borderRadius: 10
+
+    },
+
+    btn:{
+      marginTop: 20,
+      alignItems:"center"
+    }
+
+
+  })
