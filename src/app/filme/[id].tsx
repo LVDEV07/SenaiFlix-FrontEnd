@@ -50,10 +50,16 @@ export default function perfil() {
            </View>
 
            <Pressable style={styles.btnAssistir}>
+            <Text>
+
             Assistir
+            </Text>
             </Pressable>
             <Pressable style={styles.btnLista}>
+              <Text>
+
             Minha Lista
+              </Text>
             </Pressable>
 
           <View style={styles.sinopse}>
