@@ -1,7 +1,7 @@
 import React from 'react'
 
 export async function BuscarFilmes() {
-  const resposta = await fetch("http://10.92.201.130:3000/filmes")
+  const resposta = await fetch("http://localhost:3000/filmes/")
 
 
   if(!resposta.ok){

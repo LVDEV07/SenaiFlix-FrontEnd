@@ -16,7 +16,7 @@ export default function filmes() {
         return (
             <View style={style.centro}>
                 <ActivityIndicator />
-                <Text>Carregando usuários...</Text>
+                <Text>Carregando filmes...</Text>
             </View>
         )
     }
@@ -24,7 +24,7 @@ export default function filmes() {
     if (isError) {
         return (
             <View style={style.centro}>
-                <Text>Ops! Erro ao carregar usuários!</Text>
+                <Text>Ops! Erro ao carregar filmes!</Text>
             </View>
         )
     }

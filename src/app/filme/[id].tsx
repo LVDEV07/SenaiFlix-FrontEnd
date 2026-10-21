@@ -10,7 +10,7 @@ export default function perfil() {
   const {id} = useLocalSearchParams<{id:string}>()
 
    const {data, isLoading, isError} = useQuery({
-      queryKey:["usuario"],
+      queryKey:["filmes"],
       queryFn:() => BuscarFilme(id)
     })
 
@@ -18,7 +18,7 @@ export default function perfil() {
         return(
           <View  style={styles.centro}>
             <ActivityIndicator/>
-            <Text>Carregando usuário...</Text>
+            <Text>Carregando filme...</Text>
           </View>
         )
       }
@@ -26,7 +26,7 @@ export default function perfil() {
       if(isError){
         return(
         <View>
-          <Text>Ops! Erro ao carregar usuário!</Text>
+          <Text>Ops! Erro ao carregar filme!</Text>
         </View>
         )
       }
