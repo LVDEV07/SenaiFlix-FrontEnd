@@ -50,13 +50,13 @@ export default function perfil() {
            </View>
 
            <Pressable style={styles.btnAssistir}>
-            <Text>
+            <Text style={styles.btnText}>
 
             Assistir
             </Text>
             </Pressable>
             <Pressable style={styles.btnLista}>
-              <Text>
+              <Text style={styles.btnText}>
 
             Minha Lista
               </Text>
@@ -66,17 +66,42 @@ export default function perfil() {
            <Text style={styles.sinopseTitle}>
             Sinopse
            </Text>
-           <Text style={styles.email}>{data.sinopse}</Text>
+           <Text style={styles.sinopseText}>{data.sinopse}</Text>
           </View>
 
-           <Text style={styles.email}>Genero: {data.genero}</Text>
-           <Text style={styles.email}>Direção: {data.diretor}</Text>
+          <View style={styles.subInfo}>
+           <Text style={styles.subTitle}>Gênero</Text>
+           <Text style={styles.subDesc}>{data.genero}</Text>
+           </View>
+
+           
+          <View style={styles.subInfo}>
+
+           <Text style={styles.subTitle}>Direção</Text>
+           <Text style={styles.subDesc}>{data.diretor}</Text>
+          </View>
         </View>
            </View>
   )
 }
 
 const styles = StyleSheet.create({
+
+  subInfo:{
+    flexDirection: "row",
+    marginBottom: 10
+    
+  },
+
+  subTitle:{
+    marginRight: 100,
+    color:"#747272",
+    fontWeight: 600,
+  },
+
+  subDesc:{
+    fontWeight: 600,
+  },
 
   btnAssistir:{
       padding:20,
@@ -93,23 +118,24 @@ const styles = StyleSheet.create({
       backgroundColor:"#747272",
       maxWidth:400,
       alignItems:"center",
-      color:"white",
+      marginBottom: 30
+  },
+
+  btnText:{
+      color:"#ffffff",
       fontFamily: "Arial",
       fontWeight: 700,
-      marginBottom: 12
+      fontSize: 16
   },
 
   sinopseTitle:{
     fontFamily:"Arial",
     fontWeight:700,
     fontSize: 20,
-    marginBottom:12
+    marginBottom:12,
+    marginTop:12
   },
 
-
-  linha:{
-    borderBottomWidth:3
-  },
 
   subinfos:{
     marginTop:10,
@@ -155,9 +181,8 @@ const styles = StyleSheet.create({
 
     container:{
         flex:1,
-  
-        
-        gap: 6,
+        fontFamily: "arial",
+        gap: 6
    
     },
 
@@ -176,8 +201,8 @@ const styles = StyleSheet.create({
         fontWeight:"800"
     },
 
-    email:{
-        fontSize: 14
+    sinopseText:{
+        marginBottom: 12
     },
 
     sinopse:{
